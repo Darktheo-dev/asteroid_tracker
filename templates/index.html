@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Asteroid Tracker</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ✅ NAVBAR -->
+    <header class="navbar">
+      <h1>☄️ Asteroid Tracker</h1>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+      <div id="nav-menu" class="mobile-menu">
+        <a href="/asteroids-page" onclick="toggleMenu()">Asteroid Feed</a>
+        <a href="/speed-page" onclick="toggleMenu()">Speed Calculator</a>
+      </div>
+    </header>
+
+    <!-- ✅ MAIN CONTENT -->
+    <main class="content">
+      <h2>Welcome to the NASA Near-Earth Object Tracker</h2>
+      <p>
+        This tool allows you to explore real-time asteroid data and perform
+        space-related calculations using C++ and Python.
+      </p>
+      <img
+        src="https://media1.tenor.com/m/hzS9RwFM4yAAAAAd/crashing-to-earth-meteor-showers101.gif"
+        alt="Rotating Asteroid"
+        style="
+          width: 500px;
+          height: 500px;
+          margin-top: 250px;
+          border-radius: 8px;
+        "
+      />
+    </main>
+
+    <!-- ✅ FOOTER -->
+    <footer>
+      <p>&copy; 2025 NASA Asteroid Tracker | Built by Kevin Varghese</p>
+    </footer>
+
+    <!-- ✅ JS for Hamburger Menu -->
+    <script>
+      function toggleMenu() {
+        document.getElementById("nav-menu").classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>

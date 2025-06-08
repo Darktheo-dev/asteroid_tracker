@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Speed Calculator</title>
+    <link rel="stylesheet" href="/static/speed.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Asteroid Speed Calculator</h1>
+
+      <div class="form-group">
+        <label for="distance">Distance (km):</label>
+        <input type="number" id="distance" placeholder="e.g. 120000" />
+      </div>
+
+      <div class="form-group">
+        <label for="time">Time (seconds):</label>
+        <input type="number" id="time" placeholder="e.g. 3600" />
+      </div>
+
+      <button id="calcBtn">Calculate Speed</button>
+
+      <div id="result" class="result-box"></div>
+      <button onclick="window.location.href='/'">Back to Home</button>
+    </div>
+
+    <script src="/static/speed.js">
+           function toggleMenu() {
+        document.getElementById("nav-menu").classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>

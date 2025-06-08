@@ -1,0 +1,105 @@
+/* === GLOBAL === */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #0d1117;
+  color: #e6edf3;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #0b3d91;
+  color: white;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* === HAMBURGER === */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  display: none;
+  z-index: 10;
+}
+
+/* === MOBILE MENU === */
+.mobile-menu {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-menu a {
+  background-color: #45a29e;
+  color: #0d1117;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.mobile-menu a:hover {
+  background-color: #66fcf1;
+}
+
+/* === MAIN CONTENT === */
+.content {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+  flex: 1;
+}
+
+.content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #66fcf1;
+}
+
+/* === FOOTER === */
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #0b3d91;
+  color: white;
+  font-size: 14px;
+}
+
+/* === MOBILE STYLES === */
+@media screen and (max-width: 600px) {
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    background-color: #0b3d91;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+}
