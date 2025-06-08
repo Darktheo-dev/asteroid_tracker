@@ -7,7 +7,6 @@ from fastapi.responses import HTMLResponse
 from fastapi.requests import Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-import subprocess
 
 # Load environment variables from .env file
 load_dotenv()
@@ -32,6 +31,10 @@ app.add_middleware(
 # Get your NASA API key from the .env file
 NASA_API_KEY = os.getenv("NASA_API_KEY")
 
+# ============================
+# Routes
+# ============================
+
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
@@ -45,37 +48,25 @@ def get_asteroids():
         return response.json()
     else:
         return {"error": "Failed to fetch asteroid data"}
-    
-
 
 @app.get("/asteroids-page", response_class=HTMLResponse)
 def asteroids_page(request: Request):
     return templates.TemplateResponse("asteroids.html", {"request": request})
+
 @app.get("/speed")
 def calc_speed(distance_km: float, time_seconds: float):
     try:
-        result = subprocess.run(
-            ["./cpp/calculate_speed", str(distance_km), str(time_seconds)],
-            capture_output=True, text=True
-        )
-
-        if result.returncode != 0:
-            return {"error": result.stderr.strip()}
-
-        parts = result.stdout.strip().split()
-        speed_km_per_sec = float(parts[0])
-        speed_m_per_sec = float(parts[1])
-
+        speed_km_per_sec = distance_km / time_seconds
+        speed_m_per_sec = (distance_km * 1000) / time_seconds
         return {
             "distance_km": distance_km,
             "time_seconds": time_seconds,
             "speed_km_per_sec": speed_km_per_sec,
             "speed_m_per_sec": speed_m_per_sec
         }
-
     except Exception as e:
         return {"error": str(e)}
-    
+
 @app.get("/speed-page", response_class=HTMLResponse)
 def speed_page(request: Request):
     return templates.TemplateResponse("speed.html", {"request": request})
